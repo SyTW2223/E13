@@ -20,7 +20,7 @@ describe('POST /register', () => {
     await Usuario.deleteMany({});
   });
 
-  it('should create a new user and return 201 status', async () => {
+  it('debe crear un nuevo usuario y devolver el estado 201', async () => {
     const plainPassword = '8888'
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(plainPassword, salt);
@@ -39,7 +39,7 @@ describe('POST /register', () => {
 
 describe('POST /login', () => {
   
-  it('should login and return 200 status and token', async () => {
+  it('debe iniciar sesión y devolver estado 200 y los datos', async () => {
     const plainPassword = '9999'
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(plainPassword, salt);
@@ -64,7 +64,7 @@ describe('POST /login', () => {
     expect(res.body).to.have.property('equipo');
   });
 
-  it('should return 401 status if invalid credentials', async () => {
+  it('debe devolver el estado 401 si las credenciales no son válidas', async () => {
     const res = await chai.request(server)
       .post('/login')
       .send({
@@ -76,7 +76,7 @@ describe('POST /login', () => {
     expect(res.body).to.have.property('msg', 'Invalid credencial');
   });
 
-  it('should return 404 status if user not found', async () => {
+  it('debe devolver el estado 404 si no se encuentra el usuario', async () => {
     const res = await chai.request(server)
       .post('/login')
       .send({
@@ -104,7 +104,7 @@ describe('PATCH /usuario', () => {
     id = user._id;
   });
 
-  it('should update user information and return 200 status and the updated user', async () => {
+  it('debe actualizar el equipo del usuario y devolver el estado 200 y el equipo actualizado', async () => {
     const res = await chai.request(server)
       .patch(`/usuario?id=${id}`)
       .send({
@@ -115,7 +115,7 @@ describe('PATCH /usuario', () => {
     expect(res.body.equipo).to.deep.equal(["parasect","bulbasur","squirtle","aggron","metang","salamane"]);
   });
 
-  it('should return 400 status and error message if no id is provided', async () => {
+  it('debe devolver el estado 400 si no se proporciona el id', async () => {
     const res = await chai.request(server)
       .patch('/usuario')
       .send({
@@ -125,7 +125,7 @@ describe('PATCH /usuario', () => {
     expect(res.body).to.have.property('error', 'Se debe proveer un id');
   });
 
-  it('should return 400 status and error message if update is not permitted', async () => {
+  it('debe devolver el estado 400 si no se permite la actualización', async () => {
     const res = await chai.request(server)
       .patch(`/usuario?id=${id}`)
       .send({
@@ -142,7 +142,7 @@ describe('POST /damagecalculator', () => {
       calculator = new CalculatorComponent();
   });
 
-  it('should calculate the damage dealt by a move and return it', (done) => {
+  it('debe calcular el daño causado por un movimiento y devolverlo', (done) => {
       const moveData = {
           cat: "special",
           statsA: [1,100,100,100,100],

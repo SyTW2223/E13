@@ -16,7 +16,7 @@ describe('CalculatorComponent.damage()', () => {
         calculator = new CalculatorComponent();
     });
 
-    it('should calculate the damage dealt by a physical move correctly', () => {
+    it('debe calcular correctamente el daño infligido por un movimiento físico', () => {
         calculator.cat = "physical";
         calculator.statsA = [1,100,100,100,100];
         calculator.tipo1A = Types[1];
@@ -28,7 +28,7 @@ describe('CalculatorComponent.damage()', () => {
         expect(calculator.dealDamage).to.equal(72.6);
     });
 
-    it('should calculate the damage dealt by a special move correctly', () => {
+    it('debe calcular correctamente el daño infligido por un movimiento especial', () => {
         calculator.cat = "special";
         calculator.statsA = [1,100,100,100,100];
         calculator.tipo1A = Types[1];
@@ -47,14 +47,14 @@ describe('CalculatorComponent.stab()', () => {
         calculator = new CalculatorComponent();
     });
 
-    it('should return 1.5 if the move type is the same as either of the attacking Pokemon\'s types', () => {
+    it('debería devolver 1.5 si el tipo de movimiento es el mismo que cualquiera de los tipos del Pokémon atacantes', () => {
         calculator.tipo1A = Types[1];
         calculator.tipo2A = Types[4];
         expect(calculator.stab(calculator.tipo1A, calculator.tipo2A, Types[1])).to.equal(1.5);
         expect(calculator.stab(calculator.tipo1A, calculator.tipo2A, Types[4])).to.equal(1.5);
     });
 
-    it('should return 1 if the move type is different from both of the attacking Pokemon\'s types', () => {
+    it('debería devolver 1 si el tipo de movimiento es distinto que los tipos del Pokémon atacantes', () => {
         calculator.tipo1A = Types[1];
         calculator.tipo2A = Types[4];
         expect(calculator.stab(calculator.tipo1A, calculator.tipo2A, Types[0])).to.equal(1);
@@ -67,7 +67,7 @@ describe('CalculatorComponent.efectividad()', () => {
         calculator = new CalculatorComponent();
     });
 
-    it('should return the correct multiplier based on the types of the attacking and defending Pokemon', () => {
+    it('debería devolver el multiplicador correcto según los tipos de Pokémon atacantes y defensores', () => {
         calculator.tipo1A = Types[0];
         expect(calculator.efectividad(calculator.tipo1A, Types[0])).to.equal(1/2);
         expect(calculator.efectividad(calculator.tipo1A, Types[7])).to.equal(2);
