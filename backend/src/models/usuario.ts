@@ -8,7 +8,7 @@ interface Usuario extends Document {
   equipo: string[]
 }
 
-/* Creación de un esquema para el modelo artista. */
+/* Creación de un esquema para el modelo. */
 const UsuarioSchema = new Schema({
   nombre: {
     type: String,
