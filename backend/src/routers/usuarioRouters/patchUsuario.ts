@@ -5,12 +5,12 @@ import { verifyToken } from './postUsuario';
 export const patchUsuarioRouter = express.Router();
 
 /**
- * Funcion que actualiza los datos de un usuario por id.
+ * Funcion que actualiza el equipo de un usuario por id.
  * Comprueba que los atributos que se van a editar estan permitidos.
  * Crea el objeto para modificar y lo actualiza.
  * Devolviendo estados en consecuencia a los errores.
  */
-patchUsuarioRouter.patch('/usuario', async (req, res) => {
+patchUsuarioRouter.patch('/usuario', verifyToken, async (req, res) => {
   if (!req.query.id) {
     return res.status(400).send({
       error: 'Se debe proveer un id',
