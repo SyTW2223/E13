@@ -21,10 +21,10 @@ jobs:
         node-version: 16.x
     - name: Installing dependencies
       run: npm install
-      working-directory: ./backend
+      working-directory: ./BACKEND
     - name: Generating coverage information
       run: npm run coverage
-      working-directory: ./backend
+      working-directory: ./BACKEND
     - name: Coveralls GitHub Action
       uses: coverallsapp/github-action@master
       with:
