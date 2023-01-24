@@ -1,0 +1,17 @@
+
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="/">Home</a>
+      <a class="nav-item nav-link" routerLink="/pokedex">Pokedex</a>
+      <a class="nav-item nav-link" routerLink="/calculator">Calculator</a>
+      <a class="nav-item nav-link" routerLink="/profile">Profile</a>
+      <a class="nav-item nav-link" routerLink="/profile" [innerText]="username"> </a>
+  </div>
+</nav>
+
+<!-- main content container -->
+<div>
+
+      <router-outlet></router-outlet>
+</div>
+

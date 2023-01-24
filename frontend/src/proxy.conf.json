@@ -1,0 +1,6 @@
+{
+    "/api": {
+    "target": "https://e13-production.up.railway.app",
+    "secure": false
+    }
+    }

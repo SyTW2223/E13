@@ -1,0 +1,190 @@
+<head>
+    <meta charset="utf-8">
+  
+    <link rel="stylesheet" href="calculator.component.css">
+    
+  </head>
+  
+  <body>
+    <div class="container flex-center">
+        <h2>Calculator</h2>
+        <div style="display: flex; flex-direction: row;">
+        <div class="search-container">
+            <input type="text" class="form-control" id="search_qA" placeholder="Search attacker by name">
+            <button type= "submit" (click) = "updateA()">Search</button>
+          </div>
+        <div class="search-container">
+            <input type="text" class="form-control" id="search_qD" placeholder="Search defender by name">
+            <button type= "submit" (click) = "updateD()">Search</button>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: row;">
+            
+              <div class="pokemon-card">
+                <h3 class="name text-center" id="update_name">{{nombreA}}</h3>
+                <div class="img-container">
+                  <img id="update_imgA" src="../../assets/ball.png" width="500" height="350">
+                </div>
+                <div>
+                  <tbody id="tipos">
+                    <tr>
+                      <td style="width: 200px">
+                        <img id="tipo1A" src="">
+                      </td>
+                      <td style="width: 200px">
+                        <img id="tipo2A" src="">
+                      </td>
+                    </tr>
+                  </tbody>
+                </div>
+                <tbody>
+                  <tr>
+                    <td style="width: 5em ">PS</td>
+                    <td style="width: 300px ">
+                      <div class="float-app" id = "ps" style="background-color: #58fa63; border: 1px solid #58fa63; border-radius:5px; height:12px"></div>
+                    </td>
+                    <td style="width: 3em ">{{statsA[0]}}</td>
+                  </tr>
+                  <tr>
+                    <td>ATQ</td>
+                    <td style="width: 300px ">
+                      <div class="float-app" id = "atq" style="background-color: #e22c2c; border: 1px solid #e22c2c; border-radius:5px; height:12px"></div>
+                    </td>
+                    <td>{{statsA[1]}}</td>
+                  </tr>
+                  <tr>
+                    <td>DEF</td>
+                    <td style="width: 300px ">
+                      <div class="float-app" id = "def" style="background-color: #57e3f6; border: 1px solid #57e3f6; border-radius:5px; height:12px"></div>
+                    </td>
+                    <td>{{statsA[2]}}</td>
+                  </tr>
+                  <tr>
+                    <td>ATQ.ES</td>
+                    <td style="width: 300px ">
+                      <div class="float-app" id = "atqe" style="background-color: #e22c2c; border: 1px solid #e22c2c; border-radius:5px; height:12px"></div>
+                    </td>
+                    <td>{{statsA[3]}}</td>
+                  </tr>
+                  <tr>
+                    <td>DEF.ES</td>
+                    <td style="width: 300px ">
+                      <div class="float-app" id = "defe" style="background-color: #57e3f6; border: 1px solid #57e3f6; border-radius:5px; height:12px"></div>
+                    </td>
+                    <td>{{statsA[4]}}</td>
+                  </tr>
+                  <tr>
+                    <td>VEL</td>
+                    <td style="width: 300px ">
+                      <div class="float-app" id = "vel" style="background-color: #F4FA58; border: 1px solid #D7DF01; border-radius:5px; height:12px"></div>
+                    </td>
+                    <td>{{statsA[5]}}</td>
+                  </tr>
+                  <tr>
+                    <td>TOTAL</td>
+                    <td style="width: 300px ">
+                      <div class="float-app" id = "total" style="background-color: #4e0c90; border: 1px solid #D7DF01; border-radius:5px; height:12px"></div>
+                    </td>
+                    <td>{{totalA}}</td>
+                  </tr>
+                </tbody>
+              </div>
+
+              <div class="pokemon-card">
+                <h3 class="name text-center" id="update_name">{{nombreD}}</h3>
+                <div class="img-container">
+                  <img id="update_imgD" src="../../assets/ball.png" width="500" height="350">
+                </div> 
+                <div>
+                  <tbody id="tipos">
+                    <tr>
+                      <td style="width: 200px">
+                        <img id="tipo1D" src="">
+                      </td>
+                      <td style="width: 200px">
+                        <img id="tipo2D" src="">
+                      </td>
+                    </tr>
+                  </tbody>
+                </div>
+                <tbody>
+                  <tr>
+                    <td style="width: 5em ">PS</td>
+                    <td style="width: 300px ">
+                      <div class="float-app" id = "ps" style="background-color: #58fa63; border: 1px solid #58fa63; border-radius:5px; height:12px"></div>
+                    </td>
+                    <td style="width: 3em ">{{statsD[0]}}</td>
+                  </tr>
+                  <tr>
+                    <td>ATQ</td>
+                    <td style="width: 300px ">
+                      <div class="float-app" id = "atq" style="background-color: #e22c2c; border: 1px solid #e22c2c; border-radius:5px; height:12px"></div>
+                    </td>
+                    <td>{{statsD[1]}}</td>
+                  </tr>
+                  <tr>
+                    <td>DEF</td>
+                    <td style="width: 300px ">
+                      <div class="float-app" id = "def" style="background-color: #57e3f6; border: 1px solid #57e3f6; border-radius:5px; height:12px"></div>
+                    </td>
+                    <td>{{statsD[2]}}</td>
+                  </tr>
+                  <tr>
+                    <td>ATQ.ES</td>
+                    <td style="width: 300px ">
+                      <div class="float-app" id = "atqe" style="background-color: #e22c2c; border: 1px solid #e22c2c; border-radius:5px; height:12px"></div>
+                    </td>
+                    <td>{{statsD[3]}}</td>
+                  </tr>
+                  <tr>
+                    <td>DEF.ES</td>
+                    <td style="width: 300px ">
+                      <div class="float-app" id = "defe" style="background-color: #57e3f6; border: 1px solid #57e3f6; border-radius:5px; height:12px"></div>
+                    </td>
+                    <td>{{statsD[4]}}</td>
+                  </tr>
+                  <tr>
+                    <td>VEL</td>
+                    <td style="width: 300px ">
+                      <div class="float-app" id = "vel" style="background-color: #F4FA58; border: 1px solid #D7DF01; border-radius:5px; height:12px"></div>
+                    </td>
+                    <td>{{statsD[5]}}</td>
+                  </tr>
+                  <tr>
+                    <td>TOTAL</td>
+                    <td style="width: 300px ">
+                      <div class="float-app" id = "total" style="background-color: #4e0c90; border: 1px solid #D7DF01; border-radius:5px; height:12px"></div>
+                    </td>
+                    <td>{{totalD}}</td>
+                  </tr>
+                </tbody>
+              </div>
+              
+        </div>
+        <div style="display: flex; flex-direction: row;">
+            <div class="search-container">
+                <input type="text" class="form-control" id="search_q" placeholder="Select move by name">
+                <button type= "submit" (click) = "search()">Search</button>
+            </div>
+            <div class="search-container">
+                <button type= "submit" (click) = "calculate()">Calculate</button>
+            </div>
+        </div>
+        <div style="display: flex; flex-direction: row;">
+            <div>
+                <td style="width: 130px;">
+                  <h4>{{moveName}}</h4>
+                </td>
+                <td style="width: 70px;">
+                  <h4 id = "power" style="color: #e22c2c; visibility: hidden;">{{power}}</h4>
+                </td>
+                <td style="width: 200px">
+                    <img id="moveType" src="">
+                </td>
+                <td>
+                    <h4 id="dmg" style=" visibility: hidden;">{{dealDamage}}%</h4>
+                </td>
+            </div>
+        </div>
+    </div>
+</body>

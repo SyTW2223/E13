@@ -1,0 +1,66 @@
+<head>
+    <meta charset="utf-8">
+  
+    <link rel="stylesheet" href="profile.component.css">
+    
+  </head>
+  
+    <body>
+        <div class="container flex-center">
+            <h2>Create your team</h2>
+            <div class="search-container col-md-5 col-sm-5">
+              <input type="text" class="form-control" id="search_q" placeholder="Search pokemon by name">
+              <button type= "submit" (click) = "update()">Search</button>
+            </div>
+            <select id="slot">
+                <option value="1">Slot 1</option>
+                <option value="2">Slot 2</option>
+                <option value="3">Slot 3</option>
+                <option value="4">Slot 4</option>
+                <option value="5">Slot 5</option>
+                <option value="6">Slot 6</option>
+            </select>
+            <div style="display: flex; flex-direction: row;">
+                <div>
+                <h3 class="name text-center" id="update_name">{{nombre1}}</h3>
+                    <div class="img-container">
+                    <img id="update_img1" src="../../assets/ball.png" width="500" height="300">
+                    </div>
+                </div>
+                <div>
+                <h3 class="name text-center" id="update_name">{{nombre2}}</h3>
+                    <div class="img-container">
+                    <img id="update_img2" src="../../assets/ball.png" width="500" height="300">
+                    </div>
+                </div>
+                <div>
+                <h3 class="name text-center" id="update_name">{{nombre3}}</h3>
+                    <div class="img-container">
+                    <img id="update_img3" src="../../assets/ball.png" width="500" height="300">
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: row;">
+                <div>
+                <h3 class="name text-center" id="update_name">{{nombre4}}</h3>
+                    <div class="img-container">
+                    <img id="update_img4" src="../../assets/ball.png" width="500" height="300">
+                    </div>
+                </div>
+                <div>
+                <h3 class="name text-center" id="update_name">{{nombre5}}</h3>
+                    <div class="img-container">
+                    <img id="update_img5" src="../../assets/ball.png" width="500" height="300">
+                    </div>
+                </div>
+                <div>
+                <h3 class="name text-center" id="update_name">{{nombre6}}</h3>
+                    <div class="img-container">
+                    <img id="update_img6" src="../../assets/ball.png" width="500" height="300">
+                    </div>
+                </div>
+            </div>
+            <button type= "submit" (click) = "save_team()">Save team</button>
+            <button type= "submit" (click) = "load_team()">Load team</button>
+        </div>
+    </body>
